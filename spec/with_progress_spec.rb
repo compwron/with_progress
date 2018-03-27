@@ -13,15 +13,15 @@ describe "with_progress" do
       its(:size) { should == 42 }
     end
     it "works" do
-      subject.each{|i| i + 10}.should == [*10...52]
+      subject.each { |i| i + 10 }.should == [*10...52]
     end
     it "can be interrupted" do
-      subject.each{|i| break -i if i >= 4; sleep 0.1; i + 10}.should == -4
+      subject.each { |i| break -i if i >= 4; sleep 0.1; i + 10 }.should == -4
     end
   end
 
   describe 'when called with a block' do
-    let(:block) {Proc.new{|i| i + 10} }
+    let(:block) { Proc.new { |i| i + 10 } }
 
     it { should == [*10...52] }
   end
